@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Crescendo Build">
+	<macrodef name="copy-crsnd">
+		<attribute name="src"/>
+		<attribute name="dest"/>
+		<sequential>
+			<echo>Copying Crescendo project files...</echo>
+			<copy todir="@{dest}\source" verbose="true"><fileset dir="@{src}\source"/></copy>
+			<echo>source files copied.</echo>
+			<copy todir="@{dest}\config" verbose="true"><fileset dir="@{src}\config"/></copy>
+			<echo>configuration files copied.</echo>
+			<copy todir="@{dest}\database" verbose="true"><fileset dir="@{src}\database"/></copy>
+			<echo>database scripts copied.</echo>
+			<copy todir="@{dest}\javascript" verbose="true"><fileset dir="@{src}\javascript"/></copy>
+			<echo>javascript sources copied.</echo>
+			<copy todir="@{dest}\locale" verbose="true"><fileset dir="@{src}\locale"/></copy>
+			<echo>locale files copied.</echo>
+			<copy todir="@{dest}\META-INF" verbose="true"><fileset dir="@{src}\META-INF"/></copy>
+			<echo>Crescendo meta info copied.</echo>
+			<copy todir="@{dest}\tld" verbose="true"><fileset dir="@{src}\tld"/></copy>
+			<echo>tag library descriptor copied.</echo>
+			<copy todir="@{dest}\web" verbose="true"><fileset dir="@{src}\web"/></copy>
+			<echo>web application resources copied.</echo>
+		</sequential>
+	</macrodef>
+	<macrodef name="copy-test">
+		<attribute name="src"/>
+		<attribute name="dest"/>
+		<sequential>
+			<echo>Copying Crescendo project tests...</echo>
+			<copy todir="@{dest}\source" verbose="true"><fileset dir="@{src}\source"/></copy>
+			<echo>test sources copied.</echo>
+			<copy todir="@{dest}\config" verbose="true"><fileset dir="@{src}\config"/></copy>
+			<echo>test configurations copied.</echo>
+		</sequential>
+	</macrodef>
+
+	<target name="backup" description="backs up the project">
+		<tstamp><format property="today" pattern="yy-MM-dd"/></tstamp>
+		<property name="file" value="..\..\crescendo-${today}.zip"/>
+		<delete file="${file}" failonerror="false"/>
+		<delete dir="..\..\${today}" failonerror="false"/>
+		<mkdir dir="..\..\${today}"/>
+		<copy-crsnd src=".." dest="..\..\${today}\Crescendo"/>
+		<copy todir="..\..\${today}\Crescendo\task" verbose="true"><fileset dir="..\task"/></copy>
+		<copy-test src="..\..\Test" dest="..\..\${today}\Test"/>
+		<zip destfile="${file}" basedir="..\..\${today}"/>
+		<delete dir="..\..\${today}" failonerror="false"/>
+		<echo>Crescendo Project backed up.</echo>
+	</target>
+	
+	<target name="incoming" description="synchronizes the project from the portable path">
+		<antcall target="backup"/>
+		<copy-crsnd src="G:\Project\Crescendo Project\Crescendo" dest=".."/>
+<!--
+		<copy-test src="G:\Project\Crescendo Project\Test" dest="..\..\Test"/>
+-->
+		<echo>Crescendo Project synchronized from the portable path.</echo>
+	</target>
+
+	<target name="outgoing" description="synchronizes the project to the portable path">
+		<echo>Crescendo Project synchronized to the portable path.</echo>
+	</target>
+</project>

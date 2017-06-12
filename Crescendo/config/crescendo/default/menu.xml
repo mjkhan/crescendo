@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<menu>
+	<entity id="menu" class="crescendo.system.menu.Menu">
+		<default field="status">001</default>
+		<validator class="crescendo.system.menu.MenuValidator"/>
+	</entity>
+	
+	<class id="menu-servant">crescendo.system.menu.MenuServant</class>
+	<class id="menu-dialect">crescendo.system.sql.MySQLDialect</class>
+	<search id="menu-search">menu_name</search>
+	<permission id="menu-permission" target="menu" inspector="crescendo.system.menu.MenuPermission"/>
+	<event id="menu-event" class="crescendo.system.menu.MenuEvent"/>
+</menu>

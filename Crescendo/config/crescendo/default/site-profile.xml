@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site-profile class="crescendo.system.Site$Profile">
+	<number id="session-max-idle-time">10</number>
+
+	<class id="login">crescendo.system.account.LoginServant</class>
+	<feature id="site-usergroup">crescendo/default/site-usergroup.xml</feature>
+	<feature id="menu">crescendo/default/menu.xml</feature>
+	
+<!--
+	<feature id="category">crescendo/default/category.xml</feature>
+	<feature id="file">crescendo/default/file.xml</feature>
+-->
+</site-profile>

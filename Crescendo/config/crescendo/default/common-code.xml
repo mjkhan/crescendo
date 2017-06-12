@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<common-code>
+	<class id="code-servant">crescendo.system.code.CodeServant</class>
+	<class id="code-dialect">crescendo.system.sql.MySQLDialect</class>
+</common-code>

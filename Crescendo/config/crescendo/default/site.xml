@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+	<entity id="site" class="crescendo.system.Site">
+		<default field="db_conn">crsnd_site</default>
+		<default field="rd_conn">crsnd_site</default>
+		<default field="filebase">crescendo/filebase.xml</default>
+		<default field="profile">crescendo/default/site-profile.xml</default>
+		<default field="evt_cfg">crescendo-event</default>
+		<default field="job_cfg">crescendo-job</default>
+		<default field="status">000</default>
+		<validator class="crescendo.system.site.SiteValidator"/>
+		<string id="site-id-pattern">^[a-zA-Z0-9]([\w^-]*)[a-zA-Z0-9]$</string>
+	</entity>
+	
+	<string id="dbaccess">admin</string>
+	<class id="site-servant">crescendo.system.site.SiteServant</class>
+	<class id="site-dialect">crescendo.system.sql.MySQLDialect</class>
+	<search id="site-search">site_id, site_name, ins_id, ins_name, owner_id, owner_name</search>
+	
+	<permission id="site-permission" table="crsnd_permission" target="site" inspector="crescendo.system.site.SitePermission"/>
+	
+	<event id="site-event" class="crescendo.system.site.SiteEvent"/>
+</site>

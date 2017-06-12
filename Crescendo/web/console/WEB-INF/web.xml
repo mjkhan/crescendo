@@ -1,0 +1,49 @@
+<?xml version="1.0" ?>
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" "http://java.sun.com/dtd/web-app_2_3.dtd">
+<web-app>
+	<context-param>
+		<param-name>client-builder</param-name>
+		<param-value>crescendo.web.ClientBuilder</param-value>
+		<description>class name of the ClientBuilder</description>
+	</context-param>
+	<context-param>
+       	<param-name>session-token-cookey</param-name>
+		<param-value>crescendo-session</param-value>
+		<description>cookie name for session token</description>
+	</context-param>
+	<context-param>
+		<param-name>client-profile</param-name>
+		<param-value>crescendo/default/client-profile.xml</param-value>
+		<description>path to the client profile configuration</description>
+	</context-param>
+	<context-param>
+		<param-name>response-map</param-name>
+		<param-value>crescendo/default/response-map-console.xml</param-value>
+		<description>path to the response map configuration</description>
+	</context-param>
+	<context-param>
+		<param-name>default-site-id</param-name>
+		<param-value>crescendo</param-value>
+		<description>ID of the default site</description>
+	</context-param>
+	<context-param>
+		<param-name>default-handler</param-name>
+		<param-value>sites</param-value>
+		<description>name of the default RequestHandler</description>
+	</context-param>
+	<context-param>
+		<param-name>default-fetch</param-name>
+		<param-value>20</param-value>
+		<description>default count of the search result fetched at a time</description>
+	</context-param>
+	
+    <servlet>
+        <servlet-name>DashboardServlet</servlet-name>
+        <servlet-class>crescendo.web.handler.ConsoleServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>DashboardServlet</servlet-name>
+        <url-pattern>/dashboard/*</url-pattern>
+    </servlet-mapping>
+</web-app>

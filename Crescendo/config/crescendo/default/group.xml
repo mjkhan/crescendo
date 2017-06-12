@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group>
+	<string id="dbaccess">admin | site</string>
+	<string id="load-as"></string>
+	
+	<string id="group-type">default</string>
+	<string id="owner-type"></string>
+
+ 	<!-- IDs of configuration entries for objects used by the servant -->
+ 	<string id="entity">group</string>
+ 	<string id="servant">group-servant</string>
+ 	<string id="dialect">group-dialect</string>
+ 	<string id="search">group-search</string>
+ 	<string id="permission">group-permission</string>
+ 	<string id="event">group-event</string>
+
+ 	<!-- names of data/objects in either an event or a response -->
+ 	<string id="id">group-id</string>
+ 	<string id="obj">group</string>
+ 	<string id="objs">groups</string>
+ 	<string id="info">group-info</string>
+ 	<string id="list">group-list</string>
+ 	
+	<entity id="group" class="crescendo.system.group.Group">
+		<default field="status">001</default>
+		<validator class="crescendo.system.group.GroupValidator"/>
+		<string id="id-digit">00000</string>
+	</entity>
+	
+	<class id="group-servant">crescendo.system.group.GroupServant</class>
+	<class id="group-dialect">crescendo.system.sql.MySQLDialect</class>
+	<search id="group-search">grp_name, descrp</search>
+	<permission id="group-permission" target="group" inspector="crescendo.system.group.GroupPermission"/>
+	<event id="group-event" class="crescendo.system.group.GroupEvent"/>
+</group>

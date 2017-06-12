@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site-usergroup>
+	<string id="category-type">usergroup</string>
+	
+ 	<!-- IDs of configuration entries for objects used by the servant -->
+ 	<string id="entity">usergroup</string>
+ 	<string id="servant">usergroup-servant</string>
+ 	<string id="dialect">usergroup-dialect</string>
+ 	<string id="search">usergroup-search</string>
+ 	<string id="permission">usergroup-permission</string>
+ 	<string id="event">usergroup-event</string>
+
+ 	<!-- names of data in either an event or a response -->
+ 	<string id="id">usergroup-id</string>
+ 	<string id="obj">usergroup</string>
+ 	<string id="objs">usergroups</string>
+ 	<string id="info">usergroup-info</string>
+ 	<string id="list">usergroup-list</string>
+
+	<entity id="usergroup" class="crescendo.system.usergroup.UserGroup">
+		<default field="status">001</default>
+		<validator class="crescendo.system.usergroup.UserGroupValidator"/>
+		<string id="id-digit">00000</string>
+	</entity>
+
+	<class id="usergroup-servant">crescendo.system.usergroup.UserGroupServant</class>
+	<class id="usergroup-dialect">crescendo.system.sql.MySQLDialect</class>
+	<search id="usergroup-search">category_name, descrp</search>
+	<permission id="usergroup-permission" target="usergroup" inspector="crescendo.system.usergroup.UserGroupPermission"/>
+	<event id="usergroup-event" class="crescendo.system.usergroup.UserGroupEvent"/>
+
+	<string id="siteuser-table">crsnd_site_user</string>
+	<class id="siteuser-servant">crescendo.system.usergroup.SiteUserServant</class>
+	<search id="siteuser-search">user_id, alias</search>
+</site-usergroup>

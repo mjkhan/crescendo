@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<file>
+	<string id="file-type">default</string>
+<!-- 	
+	<string id="owner-type">default</string>
+ 	<feature id="filebase">Path to the filebase configuration</feature>
+ -->
+ 	
+	<entity id="file" class="crescendo.system.file.File">
+		<default field="mime_type">application/octet-stream</default>
+		<default field="status">001</default>
+		<validator class="crescendo.system.file.FileValidator"/>
+<!-- 	
+ 	<string id="filebase">Path to the filebase configuration</feature>
+ -->
+		<string id="id-digit">00000</string>
+	</entity>
+	<class id="file-servant">crescendo.system.file.FileServant</class>
+	<class id="file-dialect">crescendo.system.sql.MySQLDialect</class>
+	<search id="file-search">file_name</search>
+	
+	<permission id="file-permission" target="file" inspector="crescendo.system.file.FilePermission"/>
+	
+	<event id="file-event" class="crescendo.system.file.FileEvent"/>
+</file>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<object-cache>
+	<class id="cache-class">crescendo.system.cache.MemCache</class>
+	<number id="expiration">3600</number>
+	<string id="addresses"></string>
+</object-cache>

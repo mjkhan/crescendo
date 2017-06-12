@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<object-cache>
+	<class id="cache-class">crescendo.system.cache.DefaultCache</class>
+	<number id="cache-size">100</number>
+</object-cache>

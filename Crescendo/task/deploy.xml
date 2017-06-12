@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Crescendo Build" default="horizon">
+	<import file="D:\Tool\ant-file\jboss-10.0.0.xml"/>
+	<import file="D:\Tool\ant-file\horizon-java-8.xml"/>
+	
+	<target name="horizon">
+		<jboss-module name="horizon" src="${hrzn.lib.debug}"/>
+	</target>
+	
+	<target name="crescendo">
+		<jboss-module name="crescendo" src="..\deploy\debug\crescendo.jar"/>
+	</target>
+	
+	<target name="crescendo-ejb">
+		<deploy-10.0.0 file="..\deploy\crescendo-ejb.jar"/>
+	</target>
+	
+	<target name="crescendo-console">
+		<delete failonerror="false"><fileset dir="${jboss.deployment}" includes="*crescendo-console.war*"/></delete>
+		<copy file="..\deploy\crescendo-console.war" todir="${jboss.deployment}" verbose="true"/>
+		<copy file="war.dodeploy" tofile="${jboss.deployment}\crescendo-console.war.dodeploy"/>
+	</target>
+	
+	<target name="crescendo-conf">
+		<jboss-conf src="..\config\crescendo" dest="crescendo"/>
+	</target>
+	
+	<target name="crescendo-locale">
+		<delete dir="${jboss.modules}\locale\main\crescendo" failonerror="true"/>
+		<copy todir="${jboss.modules}\locale\main\crescendo" verbose="true"><fileset dir="..\locale\crescendo"/></copy>
+	</target>
+	
+	<target name="crescendo-asset">
+		<copy todir="D:\web-root\crescendo\asset\js" overwrite="true" verbose="true"><fileset dir="..\javascript\src"/></copy>
+		<copy todir="D:\web-root\crescendo\asset\css" overwrite="true" verbose="true"><fileset dir="..\web\console\asset\css"/></copy>
+	</target>
+	
+	<target name="deploy">
+		<antcall target="horizon"/>
+		<antcall target="crescendo"/>
+		<antcall target="crescendo-ejb"/>
+		<antcall target="crescendo-conf"/>
+		<antcall target="crescendo-locale"/>
+		<antcall target="crescendo-asset"/>
+		<antcall target="crescendo-console"/>
+		<clear-10.0.0/>
+	</target>
+</project>

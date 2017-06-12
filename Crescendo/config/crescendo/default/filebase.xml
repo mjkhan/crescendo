@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<filebase class="crescendo.system.file.Filebase">
+<!--Use '/' to separate each path element below.
+	
+	<file ext="comma-separated file extensions excluding '.'">
+		<dir>absolute path to the directory for normal files</dir>
+		<stash>absolute path to the directory for inactive or removed but recoverable files</stash>
+		<delete>absolute path to the directory for files to delete permanently</delete>
+
+		<url-prefix>URL prefix for files</url-prefix>
+		<stash-prefix>URL prefix for files inactive or removed but recoverable</stash-prefix>
+	</file>
+	Use, if necessary, {site-id} and {user-id}
+	to specify the places in the dir path and the URL
+	where IDs of the site and user are to come.
+	Add <file.../> elements as many as required.
+	Note that you must have a configuration for '*'.
+	
+	<file ext="avi,mpg,mkv,mp4">
+		<dir>C:/usr/local/service/crescendo/site-files/{site-id}</dir>
+		<url-prefix>http://localhost:8080/site-files/{site-id}</url-prefix>
+	</file>
+	<file ext="*">
+		<dir>C:/usr/local/service/crescendo/site-files/{site-id}</dir>
+		<url-prefix>http://localhost:8080/site-files/{site-id}</url-prefix>
+	</file>
+-->
+</filebase>

@@ -1,0 +1,8 @@
+* Cache
+ - test cache in JMS, Memcached
+  
+* Site
+ - setup sites with a profile
+ 
+* Account
+ - elaborate password setting with encryption

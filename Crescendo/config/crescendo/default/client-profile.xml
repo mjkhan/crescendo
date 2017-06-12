@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<client-profile class="crescendo.system.Client$Profile">
+	<feature id="account">crescendo/default/account.xml</feature>
+	<feature id="site">crescendo/default/site.xml</feature>
+</client-profile>

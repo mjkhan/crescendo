@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Crescendo Build" default="build">
+	<import file="D:\Tool\ant-file\java.xml"/>
+	<import file="D:\Tool\ant-file\jboss-10.0.0.xml"/>
+	<import file="D:\Tool\ant-file\horizon-java-8.xml"/>
+
+	<macrodef name="crescendo-jar">
+		<attribute name="file" default="crescendo.jar"/>
+		<attribute name="todir"/>
+		<attribute name="debug"/>
+		<attribute name="optimize"/>
+		<sequential>
+			<delete dir="build" failonerror="false"/>
+			<mkdir dir="build"/>
+			<compile srcdir="..\source" todir="build" debug="@{debug}" optimize="@{optimize}" classpath="${jboss.javaee};${hrzn-classpath};D:\Technology\memcached\spymemcached\spymemcached-2.11.2.jar"/>
+			
+			<delete file="@{todir}\@{file}" failonerror="false"/>
+			<jar destfile="@{todir}\@{file}">
+				<zipfileset dir="build" excludes="crescendo/bean/test/**"/>
+			</jar>
+			<echo>Crescendo jarred to @{todir}\@{file}.</echo>
+			
+			<delete dir="build" failonerror="false"/>
+		</sequential>
+	</macrodef>
+
+	<macrodef name="crescendo-ejb">
+		<attribute name="file" default="crescendo-ejb.jar"/>
+		<attribute name="todir"/>
+		<sequential>
+			<delete file="@{todir}\@{file}" failonerror="false"/>
+			<jar destfile="@{todir}\@{file}">
+				<zipfileset dir="..\META-INF" prefix="META-INF"></zipfileset>
+			</jar>
+			<echo>Crescendo Beans jarred to @{todir}\@{file}.</echo>
+		</sequential>
+	</macrodef>
+
+	<macrodef name="crescendo-console">
+		<attribute name="file" default="crescendo-console.war"/>
+		<attribute name="todir" default="../deploy"/>
+		<sequential>
+			<mkdir dir="@{file}\WEB-INF"/>
+			<copy todir="@{file}\WEB-INF"><fileset dir="D:\Technology\Horizon\Java-8+\tld"/></copy>
+			<copy todir="@{file}\WEB-INF"><fileset dir="..\META-INF" excludes="ejb-jar.xml"/></copy>
+			<copy todir="@{file}\WEB-INF"><fileset dir="..\web\console\WEB-INF"/></copy>
+			<copy todir="@{file}\WEB-INF" file="..\tld/crescendo.tld"/>
+			<copy todir="@{file}"><fileset dir="..\web\console\jsp"/></copy>
+			<delete file="@{todir}\@{file}" failonerror="false"/>
+			<jar destfile="@{todir}\@{file}"><zipfileset dir="@{file}"/></jar>
+			<delete dir="@{file}" failonerror="false"/>
+			<echo>Crescendo console built to @{todir}\@{file}.</echo>
+		</sequential>
+	</macrodef>
+	
+	<target name="crescendo-console" description="crescendo-console.war"><crescendo-console/></target>
+	
+	<target name="build" description="crescendo.jar, crescendo-ejb.jar &amp; crescendo-console.war">
+		<crescendo-jar todir="..\deploy\debug" debug="on" optimize="off"/>
+		<crescendo-jar todir="..\deploy\release" debug="off" optimize="on"/>
+		<crescendo-ejb todir="..\deploy"/>
+		<crescendo-console/>
+	</target>
+</project>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<response-map context="crescendo-console" key-param="resp" path-param="resp-page">
+	<request handler="accounts">
+		<response key="list" method="forward">/account/list.jsp</response>
+		<response key="info" method="forward">/account/info.jsp</response>
+		<response key="login,logout" method="forward">/login.jsp</response>
+		<response key="*" method="forward">/index.jsp</response>
+	</request>
+	<request handler="sites">
+		<response key="list" method="forward">/site/list.jsp</response>
+		<response key="info" method="forward">/site/info.jsp</response>
+		<response key="*" method="forward">/index.jsp</response>
+	</request>
+	<request handler="usergroups">
+		<response key="*" method="forward">/index.jsp</response>
+	</request>
+	<request handler="categories">
+		<response key="*" method="forward">/index.jsp</response>
+	</request>
+</response-map>

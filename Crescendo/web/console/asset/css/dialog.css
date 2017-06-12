@@ -1,0 +1,38 @@
+@charset "utf-8";
+
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+
+* {margin:0; padding:0;}
+* [onclick], * [href] {cursor:pointer;}
+
+body {color:#666; font-family:Dotum,AppleGothic,sana-serif; font-size:80%;}
+legend, caption, figcaption, hr {display:none;}
+p,ul,ol,li,dl,dt,dd,form {list-style-image:none; list-style-position:outside; list-style-type:none; border:0px;}
+img,fieldset, frameset, frameborder, frame {border:0;}
+a, img, span, b, input, select, em, textarea, label, strong {vertical-align:middle;}
+table {width:100%; border-collapse:collapse;}
+a {color:#666; text-decoration:none; cursor:pointer;}
+a:link,a:hover,a:active,a:focus {text-decoration:none; color:inherit;}
+button {padding:.1em .4em; min-width:60px; font-size:.9em;}
+
+/*input*/
+input, textarea {padding:.3em; border:1px solid #999999; font-size:1em;}
+select {padding:.1em .4em; border:1px solid #d0d0d0; font-size:.9em;}
+.check, .radio {border:none !important; margin-top:-2px;}
+
+.hidden {display:none;}
+
+.ui-dialog         {padding:0;}
+.ui-widget-header  {border:0px solid #6adbf7; background-image:none; background-color:purple; color:#ffffff; font-weight:bold;}
+.ui-corner-all {
+	-moz-border-radius-topleft:0;     -moz-border-radius-topright:0;     -moz-border-radius-bottomleft:0;     -moz-border-radius-bottomright:0; 
+	-webkit-border-top-left-radius:0; -webkit-border-top-right-radius:0; -webkit-border-bottom-left-radius:0; -webkit-border-bottom-right-radius:0;
+	-khtml-border-top-left-radius:0;  -khtml-border-top-right-radius:0;  -khtml-border-bottom-left-radius:0;  -khtml-border-bottom-right-radius:0;
+	 border-top-left-radius:0;         border-top-right-radius:0;         border-bottom-left-radius:0;         border-bottom-right-radius:0;
+}
+.ui-widget-overlay {
+	opacity: .50 !important; /* Make sure to change both of these, as IE only sees the second one */
+	filter: Alpha(Opacity=50) !important;
+	
+	background-color: rgb(50, 50, 50) !important; /* This will make it darker */
+}

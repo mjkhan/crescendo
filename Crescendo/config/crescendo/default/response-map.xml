@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<response-map context="web application context name. If empty, current context">
+	<request handler="request handler name">
+		<response action="comma-separated action names" method="forward(default), redirect, default">path to the application resource for the response</response>
+	</request>
+</response-map>

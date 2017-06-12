@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<crescendo>
+	<string id="sys-admin-attr">system-administrator</string>
+	
+	<number id="session-max-idle-time">30</number>
+	
+	<feature id="account-context-cache">crescendo/cache/default-cache.xml</feature>
+	<number id="site-objects-in-account-context" value="5"/>
+	<feature id="site-context-cache">crescendo/cache/default-cache.xml</feature>
+
+	<string id="admin-connection" value="crsnd_admin"/>
+	<string id="admin-connection-readonly" value="crsnd_admin"/>
+	
+	<string id="local-ejb-jndi-names">java:global/crescendo-ejb/{class.simple.name}!{class.full.name}</string>
+	<string id="remote-ejb-jndi-names">java:global/crescendo-ejb/{class.simple.name}!{class.full.name}$Remote</string>
+</crescendo>

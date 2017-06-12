@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<account>
+	<entity id="account" class="crescendo.system.Account">
+		<default field="status">001</default>
+		<validator class="crescendo.system.account.AccountValidator"/>
+		<string id="account-id-pattern">^[a-zA-Z0-9]([\w^-]*)[a-zA-Z0-9]$</string>
+		<boolean id="password-encryptor">true</boolean>
+	</entity>
+	
+	<string id="dbaccess">admin</string>
+	<class id="account-servant">crescendo.system.account.AccountServant</class>
+	<class id="account-dialect">crescendo.system.sql.MySQLDialect</class>
+	<search id="account-search">user_id, alias</search>
+	
+	<permission id="account-permission" target="account" inspector="crescendo.system.account.AccountPermission"/>
+
+	<event id="account-event" class="crescendo.system.account.AccountEvent"/>
+</account>

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE taglib
+  PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN"
+  "http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd">
+
+<taglib>
+	<tlib-version>1.0</tlib-version>
+	<jsp-version>1.2</jsp-version>
+	<short-name>crsnd</short-name>
+	<uri>crescendo.tld</uri>
+	<display-name>Crescendo JSP Tags</display-name>
+	<description>Crescendo JSP Tag Library</description>
+
+    <tag>
+		<name>resource</name>
+		<tag-class>crescendo.web.tag.ResourceTag</tag-class>
+		<body-content>empty</body-content>
+		
+		<attribute>
+			<name>name</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			
+		</attribute>
+		<attribute>
+			<name>basepath</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			
+		</attribute>
+		<attribute>
+			<name>locale</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			
+			
+		</attribute>
+    </tag>
+
+    <tag>
+		<name>restring</name>
+		<tag-class>crescendo.web.tag.RestringTag</tag-class>
+		<body-content>empty</body-content>
+		
+		<attribute>
+			<name>res</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			
+		</attribute>
+		<attribute>
+			<name>string</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			
+		</attribute>
+		<attribute>
+			<name>format</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			
+		</attribute>
+		<attribute>
+			<name>args</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			
+		</attribute>
+    </tag>
+
+    <tag>
+		<name>codestring</name>
+		<tag-class>crescendo.web.tag.CodeStringTag</tag-class>
+		<body-content>empty</body-content>
+		
+		<attribute>
+			<name>res</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			
+		</attribute>
+		<attribute>
+			<name>code</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			
+		</attribute>
+		<attribute>
+			<name>field</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			
+		</attribute>
+		<attribute>
+			<name>dataName</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			
+		</attribute>
+		<attribute>
+			<name>mapper</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			
+		</attribute>
+    </tag>
+
+    <tag>
+		<name>script</name>
+		<tag-class>crescendo.web.tag.ScriptTag</tag-class>
+		<body-content>JSP</body-content>
+		
+		<attribute>
+			<name>src</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			
+		</attribute>
+		<attribute>
+			<name>write</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			
+		</attribute>
+    </tag>
+<!--     
+    <function>
+		
+    	<name>ifEmpty</name>
+    	<function-class>horizon.system.Assert</function-class>
+    	<function-signature>java.lang.Object ifEmpty(java.lang.Object, java.lang.Object)</function-signature>
+    </function>
+    
+    <function>
+		
+    	<name>jstring</name>
+    	<function-class>horizon.web.tag.ToJScript</function-class>
+    	<function-signature>java.lang.String string(java.lang.String)</function-signature>
+    </function>
+ -->    
+</taglib>

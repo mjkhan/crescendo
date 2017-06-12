@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group-member>
+	<string id="dbaccess">admin | site</string>
+	<string id="load-as"></string>
+
+	<feature id="group">crescendo/default/group.xml</feature>
+	<string id="member-type">default</string>
+
+ 	<!-- IDs of configuration entries for objects used by the servant -->
+ 	<string id="entity">member</string>
+ 	<string id="servant">member-servant</string>
+ 	<string id="permission">member-permission</string>
+ 	<string id="event">member-event</string>
+ 	
+ 	<number id="unordered">100</number>
+
+ 	<!-- names of data/objects in either an event or a response -->
+ 	<string id="list">member-list</string>
+ 	
+	<entity id="member" class="crescendo.system.group.Member"/>
+	
+	<class id="member-servant">crescendo.system.group.MemberServant</class>
+	<permission id="member-permission" target="group" inspector="crescendo.system.group.GroupPermission"/>
+	<event id="member-event" class="crescendo.system.group.MemberEvent"/>
+</group-member>
